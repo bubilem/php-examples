@@ -4,7 +4,7 @@ Simple database table administration example. Three solutions are shown:
 
 1. [all-in-one solution](one-file-solution)
 1. [with the use of custom functions](functions-solution)
-1. object-oriented (SOON - WIP)]
+1. [object-oriented solution](oop-solution)
 
 Each solution offers 4 basic operations with user table entries:
 
@@ -27,6 +27,14 @@ Each solution offers 4 basic operations with user table entries:
 1. Check if your DBMS connection data (host address, username, password) matches mine in the examples.
 1. Run it in your webklient (Chrome, Firefox, Opera...).
 1. Enjoy, study.
+
+## Screenshots
+
+![user list](screenshots/screenshot-users.png)
+![new user](screenshots/screenshot-new-user.png)
+![user was created](screenshots/screenshot-user-was-created.png)
+![user edit](screenshots/screenshot-edit.png)
+![user delete](screenshots/screenshot-delete.png)
 
 ## Prerequisites
 

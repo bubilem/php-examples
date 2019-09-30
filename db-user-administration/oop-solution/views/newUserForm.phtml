@@ -1,0 +1,28 @@
+<h2>New User</h2>
+<p><a href="index.php" title="back to table">&#10096;</a></p>
+<form action="index.php?action=new" method="POST">
+    <div>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" maxlength="40" value="{name}">
+    </div>
+    <div>
+        <label for="surname">Surname</label>
+        <input type="text" name="surname" id="surname" maxlength="40" value="{surname}" required>
+    </div>
+    <div>
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" maxlength="255" value="{email}" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" maxlength="20" value="" required>
+    </div>
+    <div>
+        <label for="birthdate">Birthdate</label>
+        <input type="date" name="birthdate" id="birthdate" value="{birthdate}" required>
+    </div>
+    <div>
+        <input type="submit" name="submit" value="Create">
+        <input type="hidden" name="action" value="new">
+    </div>
+</form>

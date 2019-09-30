@@ -1,0 +1,15 @@
+<h2>Delete User</h2>
+<p><a href="index.php" title="back to table">&#10096;</a></p>
+<h3>Are you sure to delete user {name}?</h3>
+<form action="index.php" method="POST">
+    <div>
+        <input type="submit" name="submit" value="No">
+    </div>
+</form>
+<form action="index.php?action=del" method="POST">
+    <div>
+        <input type="submit" name="submit" value="Yes">
+        <input type="hidden" name="action" value="del">
+        <input type="hidden" name="id" value="{id}">
+    </div>
+</form>

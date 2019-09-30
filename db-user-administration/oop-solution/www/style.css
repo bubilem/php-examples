@@ -1,0 +1,110 @@
+body {
+  color: #5d5a58;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(45deg, #2d7d9a 0%, #00b7c3 100%);
+  background-size: 100vw 100vh;
+  height: 100vh;
+}
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 10px;
+}
+h1 {
+  font-size: 1.6rem;
+  text-transform: uppercase;
+  border-bottom: #2d7d9a 2px solid;
+}
+h2 {
+  font-size: 1.3rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
+p {
+  margin: 0px;
+  padding: 10px;
+  font-size: 1rem;
+}
+p.alert {
+  color: #ffffff;
+  background: #d13438;
+}
+p.success {
+  color: #ffffff;
+  background: #10893e;
+}
+main {
+  width: 100%;
+  max-width: 620px;
+  margin: 20px auto;
+  background: #ffffff;
+  border-radius: 5px;
+}
+.table {
+  padding: 10px;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table td,
+table th {
+  border-bottom: 1px #2d7d9a solid;
+  padding: 6px;
+}
+table th {
+  text-align: left;
+  font-size: 0.8rem;
+  font-style: italic;
+}
+form > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  align-content: flex-start;
+  padding: 10px;
+}
+form > div > label {
+  color: #2d7d9a;
+  text-align: left;
+  padding-right: 1rem;
+  width: 8rem;
+}
+form > div > input {
+  width: 100%;
+}
+input {
+  color: #5d5a58;
+  border: none;
+  border-bottom: #2d7d9a 1px solid;
+  padding: 5px;
+}
+a,
+input[type="submit"] {
+  font-size: 1rem;
+  text-decoration: none;
+  color: #fff;
+  background: #2d7d9a;
+  padding: 4px 8px;
+  border: none;
+  border-radius: 3px;
+  transition: all 200ms linear;
+}
+a:hover,
+input[type="submit"]:hover {
+  background: #5d5a58;
+  cursor: pointer;
+}
+@media only screen and (min-width: 576px) {
+  form > div {
+    flex-wrap: nowrap;
+  }
+  form > div > label {
+    text-align: right;
+    padding-right: 1rem;
+  }
+}

@@ -8,7 +8,7 @@ Simple database table administration (select, insert, update, delete) example. T
 
 1. all-in-one solution
 2. with the use of custom functions
-3. object-oriented (SOON - WIP)
+3. object-oriented
 
 ## [HTML Art :-)](html-art)
 
