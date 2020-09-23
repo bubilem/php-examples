@@ -5,15 +5,33 @@ class Paginator
     private $around;
     private $actualPage;
 
-    public function __construct($pc, $a = 3, $ap = 1)
+    public function __construct($pageCount, $around = 3, $actualPage = 1)
     {
-        $this->pageCount = $pc;
-        $this->around = $a;
-        $this->actualPage = $ap;
+        $this->pageCount = intval($pageCount);
+        $this->around = intval($around);
+        $this->setActualPage($actualPage);
+    }
+
+    public function setActualPage($actualPage)
+    {
+        $ap = intval($actualPage);
+        if ($ap >= 1 && $ap <= $this->pageCount) {
+            $this->actualPage = $ap;
+        } else {
+            $this->actualPage = 1;
+        }
+        return $this;
+    }
+
+    public function getActualPage(){
+        return $this->actualPage;
     }
 
     public function render()
     {
+        if(!$this->pageCount){
+            return '';
+        }
         $out = '';
         $dots = false;
         for ($i = 1; $i <= $this->pageCount; $i++) {
@@ -34,7 +52,8 @@ class Paginator
         return "<div>$out</div>";
     }
 
-    public function echo(){
+    public function echo()
+    {
         echo $this->render();
     }
 

@@ -1,6 +1,10 @@
 <?php
-require "C:data/development/www/php/work/class/Paginator.php";
-$p1 = new Paginator(50);
-$p2 = new Paginator(40, 1, 10);
-echo $p1;
-echo $p2;
+require  dirname($_SERVER['SCRIPT_FILENAME']) . "\class\Paginator.php";
+
+$p = new Paginator(50, 2);
+echo $p->render();
+
+$p->setActualPage(10)->echo();
+
+$p->setActualPage(20);
+echo $p;
