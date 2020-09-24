@@ -10,32 +10,31 @@ if ($divident == null || $divisor == null || $divisor == 0) {
     }
     echo "<p>$divident mod $divisor = $remainder<p>";
     echo "<p>Check:<br>($divisor &times; " . floor($divident / $divisor) . ") + $remainder  = $divident<p>";
-}
-
-echo '<table>';
-for ($y = 0; $y < floor($divident / $divisor); $y++) {
-    echo '<tr>';
-    for ($x = 0; $x < $divisor; $x++) {
-        echo '<td>';
-        if (($x + $y) % 2) {
-            echo '&#x26AA;';
-        } else {
-            echo '&#x26AB;';
+    echo '<table>';
+    for ($y = 0; $y < floor($divident / $divisor); $y++) {
+        echo '<tr>';
+        for ($x = 0; $x < $divisor; $x++) {
+            echo '<td>';
+            if (($x + $y) % 2) {
+                echo '&#x26AA;';
+            } else {
+                echo '&#x26AB;';
+            }
+            echo '</td>';
         }
-        echo '</td>';
     }
-}
-if ($remainder) {
-    echo '<tr>';
-    for ($x = 0; $x < $remainder; $x++) {
-        echo '<td>';
-        if (($x + $y) % 2) {
-            echo '&#x26AA;';
-        } else {
-            echo '&#x26AB;';
+    if ($remainder) {
+        echo '<tr>';
+        for ($x = 0; $x < $remainder; $x++) {
+            echo '<td>';
+            if (($x + $y) % 2) {
+                echo '&#x26AA;';
+            } else {
+                echo '&#x26AB;';
+            }
+            echo '</td>';
         }
-        echo '</td>';
+        echo '</tr>';
     }
-    echo '</tr>';
+    echo '</table>';
 }
-echo '</table>';
