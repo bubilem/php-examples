@@ -178,7 +178,7 @@ $dbDatabase = 'db_user_administration';
         if ($action === 'del' && !empty($id)) {
             $user = mysqli_fetch_array(mysqli_query($db, "SELECT id, name, surname FROM user WHERE id = $id"));
             if ($user) {
-                ?>
+        ?>
                 <h2>Delete User</h2>
                 <p><a href="index.php" title="back to table">&#10096;</a></p>
                 <h3>Are you sure to delete user <?php echo $user['surname']; ?>?</h3>
@@ -195,63 +195,63 @@ $dbDatabase = 'db_user_administration';
                     </div>
                 </form>
             <?php
-                } else {
-                    echo '<p class="alert">User not found.</p>';
-                }
+            } else {
+                echo '<p class="alert">User not found.</p>';
             }
+        }
 
-            //User editing in DB
-            if (filter_input(INPUT_POST, 'action') === 'edit') {
-                $fail = false;
-                $action = 'table';
-                if (filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT)) {
-                    $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        //User editing in DB
+        if (filter_input(INPUT_POST, 'action') === 'edit') {
+            $fail = false;
+            $action = 'table';
+            if (filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT)) {
+                $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+            } else {
+                echo '<p class="alert">User identification not found.</p>';
+                $fail = true;
+            }
+            if (!filter_input(INPUT_POST, 'surname')) {
+                echo '<p class="alert">You must enter surname.</p>';
+                $fail = true;
+            }
+            if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
+                echo '<p class="alert">Bad or no email.</p>';
+                $fail = true;
+            }
+            if (!$fail) {
+                $query = "UPDATE user SET";
+                if (filter_input(INPUT_POST, 'name')) {
+                    $query .= " name = '" . strval(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)) . "'";
+                }
+                $query .= ", surname = '" . strval(filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING)) . "'";
+                $query .= ", email = '" . strval(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)) . "'";
+                if (filter_input(INPUT_POST, 'password')) {
+                    $query .= ", password = '" . hash('sha256', strval(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING))) . "'";
+                }
+                if (filter_input(INPUT_POST, 'birthdate')) {
+                    $query .= ", birthdate = '" . strval(filter_input(INPUT_POST, 'birthdate', FILTER_SANITIZE_STRING)) . "'";
+                }
+                $query .= " WHERE id = $id";
+                if (mysqli_query($db, $query)) {
+                    echo '<p class="success">User was edited.</p>';
                 } else {
-                    echo '<p class="alert">User identification not found.</p>';
-                    $fail = true;
-                }
-                if (!filter_input(INPUT_POST, 'surname')) {
-                    echo '<p class="alert">You must enter surname.</p>';
-                    $fail = true;
-                }
-                if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
-                    echo '<p class="alert">Bad or no email.</p>';
-                    $fail = true;
-                }
-                if (!$fail) {
-                    $query = "UPDATE user SET";
-                    if (filter_input(INPUT_POST, 'name')) {
-                        $query .= " name = '" . strval(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)) . "'";
-                    }
-                    $query .= ", surname = '" . strval(filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING)) . "'";
-                    $query .= ", email = '" . strval(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)) . "'";
-                    if (filter_input(INPUT_POST, 'password')) {
-                        $query .= ", password = '" . hash('sha256', strval(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING))) . "'";
-                    }
-                    if (filter_input(INPUT_POST, 'birthdate')) {
-                        $query .= ", birthdate = '" . strval(filter_input(INPUT_POST, 'birthdate', FILTER_SANITIZE_STRING)) . "'";
-                    }
-                    $query .= " WHERE id = $id";
-                    if (mysqli_query($db, $query)) {
-                        echo '<p class="success">User was edited.</p>';
-                    } else {
-                        echo '<p class="alert">' . mysqli_error($db) . '</p>';
-                        $action = 'edit';
-                    }
-                } else {
+                    echo '<p class="alert">' . mysqli_error($db) . '</p>';
                     $action = 'edit';
                 }
-            }
-
-            //edit user form
-            if (filter_input(INPUT_GET, 'action') === 'edit' && filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT)) {
+            } else {
                 $action = 'edit';
-                $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
             }
-            if ($action === 'edit' && !empty($id)) {
-                $user = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM user WHERE id = $id"));
-                if ($user) {
-                    ?>
+        }
+
+        //edit user form
+        if (filter_input(INPUT_GET, 'action') === 'edit' && filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT)) {
+            $action = 'edit';
+            $id = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
+        }
+        if ($action === 'edit' && !empty($id)) {
+            $user = mysqli_fetch_array(mysqli_query($db, "SELECT * FROM user WHERE id = $id"));
+            if ($user) {
+            ?>
                 <h2>Edit User</h2>
                 <p><a href="index.php" title="back to table">&#10096;</a></p>
                 <form action="index.php" method="POST">
@@ -282,58 +282,58 @@ $dbDatabase = 'db_user_administration';
                     </div>
                 </form>
             <?php
-                } else {
-                    echo '<p class="alert">User not found.</p>';
-                }
+            } else {
+                echo '<p class="alert">User not found.</p>';
             }
+        }
 
-            //new user to DB
-            if (filter_input(INPUT_POST, 'action') === 'new') {
-                $fail = false;
-                $action = 'table';
-                if (!filter_input(INPUT_POST, 'surname') || !filter_input(INPUT_POST, 'password')) {
-                    echo '<p class="alert">You must enter surname and password.</p>';
-                    $fail = true;
-                }
-                if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
-                    echo '<p class="alert">Bad or no email.</p>';
-                    $fail = true;
-                }
-                if (!$fail) {
-                    $query = "INSERT INTO user (name, surname, email, password, birthdate) VALUES (";
-                    if (filter_input(INPUT_POST, 'name')) {
-                        $query .= "'" . strval(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)) . "'";
-                    } else {
-                        $query .= "NULL";
-                    }
-                    $query .= ",'" . strval(filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING)) . "'";
-                    $query .= ",'" . strval(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)) . "'";
-                    $query .= ",'" . hash('sha256', strval(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING))) . "'";
-                    if (filter_input(INPUT_POST, 'birthdate')) {
-                        $query .= ",'" . strval(filter_input(INPUT_POST, 'birthdate', FILTER_SANITIZE_STRING)) . "'";
-                    } else {
-                        $query .= ", NULL";
-                    }
-                    $query .= ")";
-                    if (mysqli_query($db, $query)) {
-                        echo '<p class="success">User was created.</p>';
-                    } else {
-                        echo '<p class="alert">' . mysqli_error($db) . '</p>';
-                        $action = 'new';
-                    }
+        //new user to DB
+        if (filter_input(INPUT_POST, 'action') === 'new') {
+            $fail = false;
+            $action = 'table';
+            if (!filter_input(INPUT_POST, 'surname') || !filter_input(INPUT_POST, 'password')) {
+                echo '<p class="alert">You must enter surname and password.</p>';
+                $fail = true;
+            }
+            if (!filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL)) {
+                echo '<p class="alert">Bad or no email.</p>';
+                $fail = true;
+            }
+            if (!$fail) {
+                $query = "INSERT INTO user (name, surname, email, password, birthdate) VALUES (";
+                if (filter_input(INPUT_POST, 'name')) {
+                    $query .= "'" . strval(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING)) . "'";
                 } else {
+                    $query .= "NULL";
+                }
+                $query .= ",'" . strval(filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING)) . "'";
+                $query .= ",'" . strval(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)) . "'";
+                $query .= ",'" . hash('sha256', strval(filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING))) . "'";
+                if (filter_input(INPUT_POST, 'birthdate')) {
+                    $query .= ",'" . strval(filter_input(INPUT_POST, 'birthdate', FILTER_SANITIZE_STRING)) . "'";
+                } else {
+                    $query .= ", NULL";
+                }
+                $query .= ")";
+                if (mysqli_query($db, $query)) {
+                    echo '<p class="success">User was created.</p>';
+                } else {
+                    echo '<p class="alert">' . mysqli_error($db) . '</p>';
                     $action = 'new';
                 }
-            }
-
-            //new user form
-            if (filter_input(INPUT_GET, 'action') === 'new' || $action === 'new') {
+            } else {
                 $action = 'new';
-                $name = strval(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
-                $surname = strval(filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING));
-                $email = filter_input(INPUT_POST, 'email') ? strval(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)) : "@";
-                $birthdate = filter_input(INPUT_POST, 'birthdate') ? strval(filter_input(INPUT_POST, 'birthdate', FILTER_SANITIZE_STRING)) : "";
-                ?>
+            }
+        }
+
+        //new user form
+        if (filter_input(INPUT_GET, 'action') === 'new' || $action === 'new') {
+            $action = 'new';
+            $name = strval(filter_input(INPUT_POST, 'name', FILTER_SANITIZE_STRING));
+            $surname = strval(filter_input(INPUT_POST, 'surname', FILTER_SANITIZE_STRING));
+            $email = filter_input(INPUT_POST, 'email') ? strval(filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL)) : "@";
+            $birthdate = filter_input(INPUT_POST, 'birthdate') ? strval(filter_input(INPUT_POST, 'birthdate', FILTER_SANITIZE_STRING)) : "";
+            ?>
             <h2>New User</h2>
             <p><a href="index.php" title="back to table">&#10096;</a></p>
             <form action="index.php" method="POST">

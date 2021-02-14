@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS `image`;
+CREATE TABLE IF NOT EXISTS `image` (
+  `id` tinyint(3) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `data` mediumblob NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
