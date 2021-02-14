@@ -1,0 +1,88 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+main {
+  margin: 20px;
+  padding: 20px;
+  background: #ccc;
+}
+form > div {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 0.5em 0;
+}
+form > div > label {
+  width: auto;
+}
+form input {
+  margin: 0.25em;
+  padding: 0.5em;
+  border: none;
+  border-radius: 0.5em;
+}
+input[type="number"] {
+  width: 5em;
+  background: #fff;
+}
+input[type="submit"] {
+  color: #fff;
+  padding: 0.5em 1em;
+  background: #444;
+}
+input[type="submit"]:hover {
+  cursor: pointer;
+  background: #222;
+}
+.decimal,
+.binary {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1.3em;
+}
+
+span.network {
+  color: #922;
+}
+span.subnet {
+  color: #229;
+}
+span.host {
+  color: #292;
+}
+span.mixed {
+  color: #880;
+}
+
+table.network tr td {
+  text-align: center;
+  padding: 0.5em;
+  border-top: #888 1px solid;
+}
+table.network tr:last-child td {
+  border-bottom: #888 1px solid;
+}
+
+nav {
+  display: flex;
+  flex-direction: column;
+}
+
+nav a {
+  margin: 0.2em 0;
+  padding: 0.5em 1em;
+  background: #444;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5em;
+}
+nav a:hover {
+  background: #222;
+}
+
+.message {
+  margin: 1em 0em;
+  padding: 0.5em 1em;
+  background: #eee;
+}
