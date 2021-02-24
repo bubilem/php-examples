@@ -1,0 +1,27 @@
+{
+  "src-type": "image/jpeg",
+  "src-max-size": "5000000",
+  "dst-path": "img/",
+  "dst-name": "image",
+  "dst-ext": "jpg",
+  "dst-configurations": [
+    {
+      "max-width": 160,
+      "max-height": 120,
+      "quality": "80",
+      "postfix": "_thumb160"
+    },
+    {
+      "max-width": 320,
+      "max-height": 240,
+      "quality": "70",
+      "postfix": "_thumb320"
+    },
+    {
+      "max-width": 800,
+      "max-height": 600,
+      "quality": "60",
+      "postfix": ""
+    }
+  ]
+}

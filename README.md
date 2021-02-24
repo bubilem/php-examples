@@ -38,6 +38,10 @@ Examples of content generation for drawing using DIV html tag. You can see:
 2. attempt a Fibonacci spiral
 3. random generation of stars
 
+- ### [Image upload and post processing](image-upload-postprocessing)
+
+Example of uploading an image to the server's file system, resizing and creating thumbnails.
+
 - ### [Playing with mathematics](math)
 
 Playing with mathematics (primes, factorials, primorials).
