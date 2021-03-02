@@ -1,6 +1,5 @@
 <?php
 session_start();
-define('SIZE', 10);
 require_once "functions.php";
 ?>
 <!DOCTYPE html>
@@ -15,12 +14,11 @@ require_once "functions.php";
 
 <body>
     <main>
-        <h1>Piškvorky</h1>
+        <h1>Piškvorky PVP</h1>
         <?php
         echo '<p>Nová hra: ';
-        for ($i = 3; $i < 6; $i++) {
-            echo ($i > 3 ? ', ' : '') . '<a href="index.php?action=new&to-win=' . $i . '">' . $i . '</a>';
-        }
+        echo '<a href="index.php?action=new&to-win=3">Tic-Tac-Toe</a>, ';
+        echo '<a href="index.php?action=new&to-win=5">10x10</a>';
         echo '</p>';
         //reset pro novou hru
         if (filter_input(INPUT_GET, 'action') == 'new') {
@@ -28,9 +26,10 @@ require_once "functions.php";
             $_SESSION['player'] = 'X'; //začíná křížek
             $_SESSION['game_over'] = false; //default
             $_SESSION['to_win'] = filter_input(INPUT_GET, 'to-win', FILTER_VALIDATE_INT);
-            if (!in_array($_SESSION['to_win'], [3, 4, 5])) {
-                $_SESSION['to_win'] = 3; //default
+            if (!in_array($_SESSION['to_win'], [3, 5])) {
+                $_SESSION['to_win'] = 5; //default
             }
+            $_SESSION['size'] = $_SESSION['to_win'] == 3 ? 3 : 10;
         }
         if (isset($_SESSION['player'])) {
             //souřadnice ze vstupu

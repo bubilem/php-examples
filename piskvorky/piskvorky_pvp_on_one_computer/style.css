@@ -1,0 +1,60 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Courier New", Courier, monospace;
+  font-size: 20px;
+  color: #fff;
+  background: #444;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+main {
+  display: inline;
+  padding: 0.5em;
+}
+h1 {
+  font-size: 1.5em;
+  margin: 0.25em 0;
+}
+a {
+  color: #ccc;
+  text-decoration: none;
+}
+a:hover {
+  color: #fff;
+}
+b {
+  font-weight: 800;
+}
+p {
+  margin: 0.1em 0;
+}
+table {
+  border-collapse: collapse;
+  display: inline-block;
+  margin: 0.25em 0;
+}
+table td {
+  width: 2em;
+  height: 2em;
+  color: #fff;
+  font-weight: 800;
+  border: 1px #777 solid;
+  background: #484848;
+  text-align: center;
+  vertical-align: middle;
+}
+table td a {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  padding: 0.25em;
+  background-color: #555;
+  transition: ease-in-out 250ms;
+}
+table td a:hover {
+  background-color: #777;
+}

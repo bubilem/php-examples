@@ -1,10 +1,8 @@
 # Piškvorky
 
-Jednoduché piškvorky v PHP. Hraní dvou hráčů na jednom PC.
-
-[Vyzkoušejte si je na piskvorky.bubileg.cz.](http://piskvorky.bubileg.cz/)
+- [PVP (dva hráči, jeden monitor)](piskvorky_pvp_one_computer)
+- [PVE (hráč proti AI)](piskvorky_pve)
 
 ## TODO
 
-- hra jednoho hráče
-- hra dvou hráčů na různých PC
+- hra dvou hráčů na různých PC po síti (network_pve)
