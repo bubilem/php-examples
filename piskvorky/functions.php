@@ -17,7 +17,7 @@ function playerToHtml(string $player): string
  * @param bool $gameOver
  * @return void
  */
-function showTable(bool $gameOver)
+function showTable()
 {
     echo '<table>';
     for ($y = 1; $y <= SIZE; $y++) {
@@ -26,7 +26,7 @@ function showTable(bool $gameOver)
             echo '<td>';
             if (!empty($_SESSION['playground'][$x][$y])) {
                 echo playerToHtml($_SESSION['playground'][$x][$y]);
-            } else if (!$gameOver) {
+            } else if (!$_SESSION['game_over']) {
                 echo '<a href="index.php?x=' . $x . '&y=' . $y . '"></a>';
             }
             echo '</td>';
@@ -71,11 +71,10 @@ function cast_in_playground(int $x, int $y, $player = null): bool
  * @param int $player_y
  * @return bool
  */
-function check_win(int $player_x, int $player_y): bool
+function check_win(int $player_x, int $player_y)
 {
-    $game_over = false;
     if (!cast_in_playground($player_x, $player_y, $_SESSION['player'])) {
-        return $game_over;
+        return;
     }
     $player = $_SESSION['playground'][$player_x][$player_y];
     //jakými směry chceme provádět kontrolu
@@ -97,9 +96,8 @@ function check_win(int $player_x, int $player_y): bool
             }
         }
         if ($neighbors + 1 >= $_SESSION['to_win']) {
-            $game_over = true;
+            $_SESSION['game_over'] = true;
             echo '<p>Vyhrál hráč ' . playerToHtml($player) . '.</p>';
         }
     }
-    return $game_over;
 }
