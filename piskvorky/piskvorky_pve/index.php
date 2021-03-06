@@ -15,14 +15,20 @@ require_once "functions.php";
 
 <body>
     <main>
-        <h1>Piškvorky PVE <sup><small>NOOB "AI"</small></sup></h1>
+        <h1>Piškvorky PVE</h1>
         <?php
-        echo '<p><a href="index.php?action=new">Nová hra</a></p>';
-
+        $sizes = [8, 12, 16, 20];
+        echo '<p>Nová hra: ';
+        foreach ($sizes as $size) {
+            echo ($size > 10 ? ', ' : '') . '<a href="index.php?action=new&size=' . $size . '">' . "$size&times;$size" . '</a>';
+        }
+        echo '</p>';
         //reset pro novou hru
         if (filter_input(INPUT_GET, 'action') == 'new') {
             session_unset();
             $_SESSION['game_over'] = false; //default
+            $size = intval(filter_input(INPUT_GET, 'size'));
+            $_SESSION['size'] = (in_array($size, $sizes) ? $size : 8);
         }
         if (isset($_SESSION['game_over'])) {
             //souřadnice ze vstupu
@@ -32,7 +38,9 @@ require_once "functions.php";
             if (inside_playground($x, $y) && !cast_in_playground($x, $y)) {
                 $_SESSION['playground'][$x][$y] = 'X'; //zapis tah
                 check_win($x, $y, 'X'); //zkontroluj výhru
-                ai_play();
+                if (!$_SESSION['game_over']) {
+                    ai_play();
+                }
             }
             //ukaž herní pole
             showTable();

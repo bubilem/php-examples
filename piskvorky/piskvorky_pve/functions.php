@@ -20,9 +20,9 @@ function playerToHtml(string $player): string
 function showTable()
 {
     echo '<table>';
-    for ($y = 1; $y <= SIZE; $y++) {
+    for ($y = 1; $y <= $_SESSION['size']; $y++) {
         echo '<tr>';
-        for ($x = 1; $x <= SIZE; $x++) {
+        for ($x = 1; $x <= $_SESSION['size']; $x++) {
             echo '<td>';
             if (cast_in_playground($x, $y)) {
                 echo playerToHtml($_SESSION['playground'][$x][$y]);
@@ -45,7 +45,7 @@ function showTable()
  */
 function inside_playground(int $x, int $y): bool
 {
-    return !empty($x) && !empty($y) && $x >= 1 && $x <= SIZE && $y >= 1 && $y <= SIZE;
+    return !empty($x) && !empty($y) && $x >= 1 && $x <= $_SESSION['size'] && $y >= 1 && $y <= $_SESSION['size'];
 }
 
 /**
@@ -120,8 +120,8 @@ function ai_play()
         'x' => 1,
         'y' => 1
     ];
-    for ($y = 1; $y <= SIZE; $y++) {
-        for ($x = 1; $x <= SIZE; $x++) {
+    for ($y = 1; $y <= $_SESSION['size']; $y++) {
+        for ($x = 1; $x <= $_SESSION['size']; $x++) {
             if (!cast_in_playground($x, $y)) {
                 $danger = detect_position($x, $y);
                 if ($max['val'] < $danger) {
