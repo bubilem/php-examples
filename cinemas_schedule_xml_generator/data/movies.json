@@ -1,0 +1,82 @@
+[
+  {
+    "name": "Šarlatán",
+    "genre": "Životopisný/Drama",
+    "country": "ČR/Irsko/Polsko/Slovensko",
+    "year": "2020",
+    "length": "118",
+    "mpaa": "PG"
+  },
+  {
+    "name": "Vykoupení z věznice Shawshank",
+    "genre": "Drama/Krimi",
+    "country": "USA",
+    "year": "1994",
+    "length": "142",
+    "mpaa": "PG"
+  },
+  {
+    "name": "Kmotr",
+    "genre": "Drama/Krimi",
+    "country": "USA",
+    "year": "1972",
+    "length": "175",
+    "mpaa": "PG-13"
+  },
+  {
+    "name": "Pán prstenů: Společenstvo Prstenu",
+    "genre": "Fantasy/Dobrodružný/Akční",
+    "country": "USA/Nový Zéland",
+    "year": "2001",
+    "length": "172",
+    "mpaa": "PG"
+  },
+  {
+    "name": "Matrix",
+    "genre": "Akční/Sci-Fi",
+    "country": "USA",
+    "year": "1999",
+    "length": "136",
+    "mpaa": "PG-13"
+  },
+  {
+    "name": "Vetřelec",
+    "genre": "Horor/Sci-Fi",
+    "country": "USA/Velká Británie",
+    "year": "1979",
+    "length": "117",
+    "mpaa": "R"
+  },
+  {
+    "name": "Obecná škola",
+    "genre": "Komedie/Drama",
+    "country": "Československo",
+    "year": "1991",
+    "length": "97",
+    "mpaa": "G"
+  },
+  {
+    "name": "S čerty nejsou žerty",
+    "genre": "Pohádka/Komedie",
+    "country": "Československo",
+    "year": "1984",
+    "length": "91",
+    "mpaa": "G"
+  },
+  {
+    "name": "Padesát odstínů šedi",
+    "genre": "Drama/Romantický/Thriller/Erotický",
+    "country": "USA",
+    "year": "2015",
+    "length": "123",
+    "mpaa": "NC-17"
+  },
+  {
+    "name": "Blade Runner",
+    "genre": "Sci-Fi/Thriller",
+    "country": "USA/Hongkong/Velká Británie",
+    "year": "1982",
+    "length": "117",
+    "mpaa": "R"
+  }
+]

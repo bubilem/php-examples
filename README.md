@@ -10,6 +10,10 @@ Czech sentence generator, which solves the composition of sentences, plural and 
 
 Secure sending of data by GET or POST methods using a simple button.
 
+- ### [Random cinemas schedule xml generator](cinemas_schedule_xml_generator)
+
+Program generates random cinemas schedule (movies, date...) to the xml file.
+
 - ### [Class autoload](class-autoload)
 
 Basic example of automatic class loading. In this example you can run the method run() from instance of class determined in URL.

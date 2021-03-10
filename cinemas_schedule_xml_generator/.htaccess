@@ -1,0 +1,7 @@
+Options -Indexes 
+<Files ~ "\.(json)$">
+   order deny,allow
+   deny from all
+</Files>
+RewriteEngine On
+RewriteRule cinema_schedule\.xml$ cinema_schedule.php [L]
