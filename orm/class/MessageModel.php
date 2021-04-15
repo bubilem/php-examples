@@ -36,6 +36,22 @@ class MessageModel
         }
     }
 
+    public function delete()
+    {
+        if (!$this->getId()) {
+            return null;
+        }
+        $result = DB::query("DELETE FROM message WHERE id = " . $this->id);
+        if ($result !== false) {
+            $result = DB::getAffectedRows();
+            if ($result == 1) {
+                $this->id = $this->date = $this->content = null;
+            }
+        }
+        return $result;
+    }
+
+
     public function getId()
     {
         return $this->id;

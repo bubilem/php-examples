@@ -7,13 +7,22 @@ spl_autoload_register(function (string $className) {
     }
 });
 
-/* create new message */
+$mess = new MessageModel();
+$mess->setContent("Random number " . mt_rand(1, 99));
+var_dump($mess);
+var_dump($mess->save());
+var_dump($mess);
+var_dump($mess->delete());
+var_dump($mess);
+
+/*
 $mess = new MessageModel();
 $mess->setContent("Random number " . mt_rand(1, 99));
 $mess->save();
+*/
 
-
-/* load existing message by id (PK), change and save */
+/*
 $mess = new MessageModel(6);
 $mess->setContent("Random number " . mt_rand(1, 99));
 $mess->save();
+*/

@@ -6,7 +6,7 @@ class DB
 
     public static function connect()
     {
-        if (!(self::$link = @mysqli_connect("localhost", "root", "", "database-name"))) {
+        if (!(self::$link = @mysqli_connect("localhost", "root", "", "4it"))) {
             die("Unable to connect to DBMS.");
         }
         self::query('SET CHARACTER SET UTF8');
@@ -54,5 +54,10 @@ class DB
     public static function getInsertId()
     {
         return mysqli_insert_id(self::$link);
+    }
+
+    public static function getAffectedRows(): int
+    {
+        return mysqli_affected_rows(self::$link);
     }
 }

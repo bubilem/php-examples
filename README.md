@@ -58,6 +58,14 @@ You can calculate **mask**, **network**, **first host**, **last host**, **broadc
 
 Example of custom simple Object-relational mapping.
 
+- ### [Piškvorky](piskvorky)
+
+Piškvorky game in PHP (PVP, PVE).
+
+- ### [Search in list](search-in-list)
+
+Sequential search, halving search, indexing in lists...
+
 ## Instalation
 
 1. **Download** or **git clone** my repository to your webserver directory.
