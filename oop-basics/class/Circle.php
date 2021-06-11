@@ -18,25 +18,26 @@ class Circle extends Shape implements Measurable
     private $r;
 
     /**
+     * Bod středu kružnice
+     *
+     * @var Point
+     */
+    private $center;
+
+    /**
      * Konstruktor
      * "Magická" metoda, která se automaticky spouští při vytváření objektu z třídy Circle.
      * @param float $r nepovinný parametr pro poloměr
      */
-    public function __construct(float $r = 0)
+    public function __construct(float $r = 1, Point $center = null)
     {
         parent::__construct(); //zavolání rodičovského konstruktoru
         $this->r = $r; //uložení hodnoty parametru r do atributu r
-    }
-
-    /**
-     * Getter instančního atributu poloměr
-     *
-     * Veřejná metoda, nastavující hodnotou parametru atributu unit.
-     * @return float poloměr
-     */
-    public function getR(): float
-    {
-        return $this->r;
+        if ($center instanceof Point) {
+            $this->center = $center;
+        } else {
+            $this->center = new Point(0, 0);
+        }
     }
 
     /**
@@ -49,6 +50,40 @@ class Circle extends Shape implements Measurable
     public function setR(float $r): void
     {
         $this->r = $r;
+    }
+
+    /**
+     * Getter instančního atributu poloměr
+     *
+     * Veřejná metoda, nastavující hodnotou parametru atributu r.
+     * @return float poloměr
+     */
+    public function getR(): float
+    {
+        return $this->r;
+    }
+
+    /**
+     * Setter instančního atributu bodu středu křužnice
+     *
+     * Veřejná metoda, nastavující hodnotu atributu center
+     * @param Point $center
+     * @return void
+     */
+    public function setCenter(Point $center): void
+    {
+        $this->center = $center;
+    }
+
+    /**
+     * Getter středu kružnice
+     *
+     * Veřejná metoda vracející bod středu kružnice
+     * @return Point
+     */
+    public function getCenter(): Point
+    {
+        return $this->center;
     }
 
     /**
@@ -82,8 +117,8 @@ class Circle extends Shape implements Measurable
      */
     public function __toString()
     {
-        return "circle[r=$this->r$this->unit, o="
+        return "circle: S=" . $this->center . ", r=$this->r$this->unit, o="
             . $this->o() . $this->unit . ", s="
-            . $this->s() . $this->unit . "2]";
+            . $this->s() . $this->unit . "2";
     }
 }

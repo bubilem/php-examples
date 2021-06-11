@@ -96,7 +96,7 @@ abstract class Shape
     /**
      * Count getter
      * 
-     * Statická metoda, která vrací hodnotu statického atributu count.
+     * Statická (třídní) metoda, která vrací hodnotu statického atributu count.
      * @return int
      */
     public static function getCount(): int
