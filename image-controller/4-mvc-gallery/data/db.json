@@ -1,0 +1,18 @@
+[
+  {
+    "id": "7b0b50d6255637f2",
+    "path": "data/files/",
+    "name": "Ptáci na stromě",
+    "type": "image/jpeg",
+    "ext": "jpg",
+    "virtualFolder": "japan"
+  },
+  {
+    "id": "a781b36ba9b393e6",
+    "path": "data/files/",
+    "name": "Bažanti na pařezu",
+    "type": "image/jpeg",
+    "ext": "jpg",
+    "virtualFolder": "japan"
+  }
+]

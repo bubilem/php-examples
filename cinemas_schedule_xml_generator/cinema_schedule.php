@@ -6,6 +6,7 @@
 
 define("EOL", "\n");
 header("Content-Type: application/xml; charset=utf-8");
+header('Access-Control-Allow-Origin: *');
 echo '<?xml version="1.0" encoding="UTF-8" ?>' . EOL;
 echo '<cinema_schedule>' . EOL;
 echo tab(1) . '<cinemas>' . EOL;
