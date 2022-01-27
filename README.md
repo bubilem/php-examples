@@ -22,6 +22,10 @@ Various examples of PHP programming.
 
   Example of saving an image to the MySQL database.
 
+- ### [Object-relational mapping](db-orm)
+
+  Example of custom simple and mvc Object-relational mapping.
+
 - ### [User table administration](db-user-administration)
 
   Simple database table administration (select, insert, update, delete) example. Three solutions are shown:
@@ -57,10 +61,6 @@ Various examples of PHP programming.
 - ### [OOP Basics (CZ)](oop-basics)
 
   deklarace tříd, instanční atributy, statické (třídní) atributy i metody, veřejné, prívátní i chráněné metody a atributy, dědění, implemetnace rozhraní, magické metody vytváření, klonování a rušení objektů...
-
-- ### [Object-relational mapping](orm)
-
-  Example of custom simple Object-relational mapping.
 
 - ### [Piškvorky](piskvorky)
 
