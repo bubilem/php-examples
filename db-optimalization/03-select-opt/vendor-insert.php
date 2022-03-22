@@ -5,7 +5,7 @@ $vendorCount = 50;
 
 for ($i = 1; $i <= $vendorCount; $i++) {
     DB::query(
-        "INSERT INTO vendor (name) VALUES ('" . Gene::name() . "')"
+        "INSERT INTO vendor (name, products) VALUES ('" . Gene::name() . "', 0)"
     );
 }
 

@@ -1,9 +1,9 @@
 <?php
 require __DIR__ . "/../utils/_init.php";
 
-$insertCount = 100;
-$productsInOneInsert = 100;
-$vendorCount = 50;
+$insertCount = 1000;
+$productsInOneInsert = 400;
+$vendorCount = 100;
 
 for ($i = 1; $i <= $insertCount; $i++) {
     $products = "";

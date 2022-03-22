@@ -11,7 +11,7 @@ class DB
             "localhost",
             "root",
             "",
-            "products"
+            "products_opti"
         );
         if (self::$conn === false) {
             die("Unable connect to dbms.");

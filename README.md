@@ -22,6 +22,10 @@ Various examples of PHP programming.
 
   Example of saving an image to the MySQL database.
 
+- ### [DB optimalization](db-optimalization)
+
+  Examples of optimalization work with the database.
+
 - ### [Object-relational mapping](db-orm)
 
   Example of custom simple and mvc Object-relational mapping.
@@ -46,6 +50,10 @@ Various examples of PHP programming.
   2. attempt a Fibonacci spiral
   3. random generation of stars
 
+- ### [Image controller](image-controller)
+
+  How to manage work with the images.
+
 - ### [Image upload and post processing](image-upload-postprocessing)
 
   Example of uploading an image to the server's file system, resizing and creating thumbnails.
@@ -60,7 +68,15 @@ Various examples of PHP programming.
 
 - ### [OOP Basics (CZ)](oop-basics)
 
-  deklarace tříd, instanční atributy, statické (třídní) atributy i metody, veřejné, prívátní i chráněné metody a atributy, dědění, implemetnace rozhraní, magické metody vytváření, klonování a rušení objektů...
+  Deklarace tříd, instanční atributy, statické (třídní) atributy i metody, veřejné, prívátní i chráněné metody a atributy, dědění, implemetnace rozhraní, magické metody vytváření, klonování a rušení objektů...
+
+- ### [OOP software engineering](oop-si)
+
+  Documentation comments, UML, design patterns, object-oriented programming...
+
+- ### [PHPUnit tests](phpunit)
+
+  PHPUnit test basics.
 
 - ### [Piškvorky](piskvorky)
 
