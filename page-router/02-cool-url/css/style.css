@@ -1,0 +1,31 @@
+body {
+  font-size: 18px;
+  font-family: "Courier New", Courier, monospace;
+  color: #ccc;
+  background: #123;
+}
+header {
+  margin: 1em;
+}
+main {
+  margin: 1em;
+}
+nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+nav a {
+  padding: 0.25em 0.5em;
+  color: #9bf;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 0.5em;
+}
+nav a.active {
+  background: #345;
+}
+nav a:hover {
+  background: #000;
+}
