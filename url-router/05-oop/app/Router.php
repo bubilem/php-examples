@@ -1,7 +1,7 @@
 <?php
 class Router
 {
-    public function route(string $uri)
+    public static function route(string $uri)
     {
         $uriParams = explode("/", $uri);
         if (empty($uriParams[0])) {
