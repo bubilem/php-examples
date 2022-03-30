@@ -5,7 +5,7 @@ $pages = [
     "kontakty" => "Jak nás kontaktovat",
     "404" => "Ups 404"
 ];
-$path = "/2021-2022/3it/router/";
+$path = "/php-examples/url-router/02-cool-url/";
 $uri = str_replace($path, "", $_SERVER["REQUEST_URI"]);
 $uriParam = explode("/", $uri);
 $p = $uriParam[0] ?? "";
@@ -15,17 +15,16 @@ if (empty($p)) {
 if (!isset($pages[$p])) {
     $p = '404';
 }
-$title = $pages[$p];
 ?>
 <!DOCTYPE html>
 <html lang="cs">
 
 <head>
-    <base href="http://www/2021-2022/3it/router/">
+    <base href="http://www/php-examples/url-router/02-cool-url/">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $title . ($title ? " | " : "") . "Router"; ?></title>
+    <title><?php echo ($p == "home" ? "" : $pages[$p] . " | ") . "Router"; ?></title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
@@ -49,9 +48,8 @@ $title = $pages[$p];
         </nav>
     </header>
     <main>
-        <h1><?php echo $title; ?></h1>
         <?php
-        include "app/$p.php";
+        include "pages/$p.php";
         ?>
     </main>
 </body>
