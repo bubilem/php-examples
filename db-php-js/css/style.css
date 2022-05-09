@@ -1,0 +1,20 @@
+*{
+    margin:0;
+    padding:0;
+    border:none;
+}
+body{
+    color: #fff;
+    background: #333;    
+    font-size: 18px;
+}
+table{
+    width: 100%;
+}
+th,td{
+    text-align: center;
+    padding: 1em;
+}
+td{
+    border-top: #555 solid 1px;
+}
