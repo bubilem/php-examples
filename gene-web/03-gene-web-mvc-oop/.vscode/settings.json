@@ -1,0 +1,18 @@
+{
+  "workbench.colorTheme": "Default Dark+",
+  "window.zoomLevel": 3,
+  "editor.fontSize": 13,
+  "terminal.integrated.fontSize": 11,
+  "editor.fontLigatures": true,
+  "editor.formatOnSave": true,
+
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "compressed",
+      "extensionName": ".min.css",
+      "savePath": "/www/css"
+    }
+  ],
+  "liveSassCompile.settings.autoprefix": ["> 1%", "last 2 versions"],
+  "liveSassCompile.settings.generateMap": false
+}

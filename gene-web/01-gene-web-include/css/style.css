@@ -1,0 +1,38 @@
+body {
+  color: #eee;
+  background: #333;
+}
+a {
+  color: #ff0;
+}
+button {
+  color: #222;
+  cursor: pointer;
+}
+#container {
+  display: flex;
+  flex-wrap: wrap;
+}
+#container > div {
+  width: 100px;
+  text-align: center;
+  color: black;
+  background: greenyellow;
+  padding: 1em;
+  margin: 0.25em;
+  cursor: pointer;
+}
+#container > div:hover {
+  color: black;
+  background: red;
+}
+
+.gallery {
+  margin: 1em 0.5em;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+}
+.gallery > img {
+  width: 100%;
+}

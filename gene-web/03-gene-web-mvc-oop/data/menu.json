@@ -1,0 +1,7 @@
+[
+  { "url": "home", "label": "Domovská stránka" },
+  { "url": "onas", "label": "O nás" },
+  { "url": "kontakty", "label": "Kontakty" },
+  { "url": "random", "label": "Náhodné číslo" },
+  { "url": "3ite", "label": "3ITE (IT)" }
+]

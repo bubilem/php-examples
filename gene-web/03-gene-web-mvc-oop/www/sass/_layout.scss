@@ -1,0 +1,29 @@
+* {
+  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
+}
+
+body {
+  color: #ddd;
+  background: #344;
+}
+
+header,
+footer {
+  padding: 1em;
+  background: #688;
+}
+
+main {
+  padding: 1em;
+
+  article {
+    h1 {
+      font-size: 2em;
+      margin: 2em 0;
+    }
+
+    p {
+      margin: 1em 0;
+    }
+  }
+}

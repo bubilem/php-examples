@@ -1,0 +1,22 @@
+{
+  "home": {
+    "caption": "Domovská stránka",
+    "description": "Toto je domovská stránka"
+  },
+  "onas": {
+    "caption": "O nás",
+    "description": "Něco i nás..."
+  },
+  "kontakty": {
+    "caption": "Kontakty",
+    "description": "Toto je stránka s kontakty"
+  },
+  "3ite": {
+    "caption": "Super třída 3ITE",
+    "description": "Studenti oborů IT a ELE."
+  },
+  "404": {
+    "caption": "Chyba 404",
+    "description": "Stránka nenalezena."
+  }
+}
