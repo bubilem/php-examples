@@ -74,6 +74,10 @@ Various examples of PHP programming.
 
   Documentation comments, UML, design patterns, object-oriented programming...
 
+  ### [OOP tables](oop-table)
+
+  Generating tables from configuration file steb by step...
+
 - ### [PHPUnit tests](phpunit)
 
   PHPUnit test basics.
