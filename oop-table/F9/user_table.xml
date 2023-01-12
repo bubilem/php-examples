@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table name="accounts" class="table table-striped table-hover table-bordered">
+    <initialization>
+        <option id="tableName" value="cms_user" />
+        <option id="nameColumnName" value="username" />
+        <option id="itemsPerPage" value="20" />
+        <option id="itemsPerPageOption" value="10|200|10" />
+        <option id="orderColumn" value="sortdate" />
+        <option id="orderDirection" value="DESC" />
+        <query select="u.*, u.id userid, r.code roleCode, CONCAT_WS(' ', surname, forename, beforeNameDegree, afterNameDegree) completename, CONCAT('files/user/',u.id,'-thumb') imagePath, 
+                       GROUP_CONCAT(DISTINCT g.name ORDER BY g.name DESC SEPARATOR ', ') groupnames, IF(changeDate IS NOT NULL, changeDate, createDate) sortdate, 
+                       IF(u.active = 1, '&lt;i class=&quot;fa fa-check&quot;&gt;&lt;/i&gt;', '&lt;i class=&quot;fa fa-times&quot;&gt;&lt;/i&gt;') activeText " from="(((cms_user u LEFT JOIN cms_role r ON u.role = r.id) LEFT JOIN cms_user_has_group uhg ON u.id = uhg.user) LEFT JOIN cms_user_group g ON uhg.user_group = g.id)" group="u.id" />
+        <filter id="u.forename" label="Jméno" type="text"/>
+        <filter id="u.surname" label="Příjmení" type="text"/>
+        <filter id="u.username" label="Username" type="text"/>
+        <filter id="u.email" label="Email" type="text"/>
+        <filter id="u.phone" label="Telefon" type="text"/>
+        <filter id="u.company" label="company" type="text"/>
+        <filter id="u.ICO" label="IČO" type="text"/>
+        <filter id="u.role" label="Role" type="select" query="SELECT r.id, CONCAT(LPAD(r.level,3,0),' - ',r.code,' (',COUNT(u.id),')') label FROM cms_user u RIGHT JOIN cms_role r ON u.role = r.id GROUP BY r.id ORDER BY r.level, r.code" />
+        <filter id="u.level" label="Úroveň" type="select" query="SELECT level, CONCAT(level,' (',COUNT(id),')') label FROM cms_user GROUP BY level ORDER BY level" />
+        <filter id="u.active" label="Povolen" type="select" query="SELECT active, CONCAT(IF(active = 1,'Ano','Ne'),' (',COUNT(id),')') label FROM cms_user GROUP BY active ORDER BY active" />
+        <filter id="user_group" label="Skupina" type="select" query="SELECT id, name FROM cms_user_group ORDER BY level DESC, name" />
+        <filter id="u.marks" label="Je značka" type="like" json='{"A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"}' />
+        <filter id="u.marks*" label="Není značka" type="not_like" json='{"A":"A","B":"B","C":"C","D":"D","E":"E","F":"F","G":"G","H":"H","I":"I","J":"J","K":"K","L":"L","M":"M","N":"N","O":"O","P":"P","Q":"Q","R":"R","S":"S","T":"T","U":"U","V":"V","W":"W","X":"X","Y":"Y","Z":"Z"}' />
+    </initialization>
+    <button action="add" type="primary" right="add">
+        <icon>plus</icon>
+        <label>Nový uživatelský účet</label>
+        <title>Vytvořit položku</title>
+    </button>
+    <button url="admin/admin/user-accounts-agreement" type="primary">
+        <icon>check-circle</icon>
+        <label>Udělené souhlasy</label>
+        <title>Udělené souhlasy uživatelů</title>
+    </button>
+    <button url="admin/admin/user-accounts-mark" type="primary">
+        <icon>bookmark</icon>
+        <label>Označování</label>
+        <title>Označování uživatelů</title>
+    </button>
+    <button action="emails" type="primary" right="view">
+        <icon>envelope</icon>
+        <label>Seznam emailů</label>
+        <title>Emaily dle filtru</title>
+    </button>
+    <columns>
+        <column id="userid" title="" type="checkbox"/>
+        <column id="completename" title="Příjmení a jméno" type="text" orderable="orderable" />
+        <column id="id" title=" s informacemi" type="row">
+            <item id="imagePath" title="Avatar" type="image"/>
+            <item id="username" title="Username" type="text"/>
+            <item id="email" title="Email" type="email" />
+            <item id="phone" title="Telefon" type="text" />
+            <item id="company" title="Společnost" type="text" />
+            <item id="ICO" title="IČO" type="text" />
+            <item id="DIC" title="DIČ" type="text" />
+            <item id="groupnames" title="Skupiny" type="text" />
+            <item id="createDate" title="Vytvořen" type="datetime" />
+            <item id="changeDate" title="Upraven" type="datetime" />
+            <item id="lastLoginDate" title="Přihlášen" type="datetime" />
+        </column>
+        <column id="sortdate" title="Upraven" type="date" orderable="orderable" />
+        <column id="roleCode" title="Role" type="text" />
+        <column id="marks" title="&lt;i class='fa fa-bookmark'&gt;&lt;/i&gt;" type="text" />
+        <column id="level" title="&lt;i class='fa fa-signal fa-flip-horizontal'&gt;&lt;/i&gt;" type="numeric" orderable="orderable" />
+        <column id="active" title="&lt;i class='fa fa-check'&gt;&lt;/i&gt;" type="blank">
+            <button action="active" actionParameter="id" type="default" right="edit">
+                <code>activeText</code>
+                <title>Změnit povolení</title>
+            </button>
+        </column>
+        <column id="option" title="">
+            <button action="edit" actionParameter="id" type="primary" right="edit">
+                <icon>pencil-alt</icon>
+                <label></label>
+                <title>Upravit položku</title>
+            </button>
+            <button action="picture" actionParameter="id" type="primary" right="edit">
+                <icon>image</icon>
+                <label></label>
+                <title>Fotografie</title>
+            </button>
+            <button action="userhasgroup" actionParameter="id" type="primary" right="edit">
+                <icon>users</icon>
+                <label></label>
+                <title>Provázat se skupinami</title>
+            </button>
+            <button action="personaly" actionParameter="id" type="primary" right="edit">
+                <icon>book</icon>
+                <label></label>
+                <title>Osobní údaje</title>
+            </button>
+            <button url="admin/admin/user-accounts-agreement/table/filter/ua.user" actionParameter="id" type="primary" right="view">
+                <icon>check-circle</icon>
+                <label></label>
+                <title>Souhlasy uživatele</title>
+            </button>
+            <button action="changeauthor" actionParameter="id" type="danger" right="edit">
+                <icon>user-times</icon>
+                <label></label>
+                <title>Zrušit autorství stránek, článků, souborů...</title>
+            </button>
+            <button action="delete" actionParameter="id" type="danger" right="delete">
+                <icon>times</icon>
+                <label></label>
+                <title>Smazat položku</title>
+                <modal>
+                    <option name="type" value="yesno" />
+                    <option name="deleteItemName" param="username" />
+                </modal>
+            </button>
+        </column>
+    </columns>
+</table>

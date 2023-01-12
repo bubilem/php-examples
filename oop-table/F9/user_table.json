@@ -1,0 +1,72 @@
+{
+  "settings": {
+    "caption": "Uživatelé",
+    "class": "table-bordered table-striped",
+    "items_per_page": 20,
+    "paginator": true,
+    "query": "SELECT * FROM user ORDER BY surname ASC"
+  },
+  "columns": [
+    {
+      "id": "name",
+      "title": "Jméno a příjmení",
+      "type": "text",
+      "orderable": true
+    },
+    {
+      "id": "email",
+      "title": "Email",
+      "type": "email",
+      "orderable": true
+    },
+    {
+      "id": "created",
+      "title": "Vytvořen",
+      "type": "date",
+      "orderable": true
+    },
+    {
+      "id": "role",
+      "title": "Role",
+      "type": "text",
+      "orderable": false
+    },
+    { "id": "options", "title": "" }
+  ],
+  "filter": [
+    { "id": "forename", "label": "Jméno", "type": "text" },
+    { "id": "surname", "label": "Přímení", "type": "text" },
+    {
+      "id": "role",
+      "label": "Role",
+      "type": "select",
+      "query": "SELECT id, name FROM role ORDER BY level"
+    }
+  ],
+  "buttons": {
+    "for_all": [
+      {
+        "url": "user/new",
+        "label": "Nový",
+        "icon": "plus",
+        "title": "Vytvořit uživatele"
+      }
+    ],
+    "for_item": [
+      {
+        "url": "user/edit/{id}",
+        "label": "",
+        "icon": "pencil",
+        "title": "Upravit uživatele",
+        "column": "options"
+      },
+      {
+        "url": "user/delete/{id}",
+        "label": "",
+        "icon": "times",
+        "title": "Smazat uživatele",
+        "column": "options"
+      }
+    ]
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "caption": "Spotřeba ovoce",
+  "class": "table bordered",
+  "cols": { "name": "Člověk", "pear": "Hrušek" },
+  "data": "data.json"
+}
